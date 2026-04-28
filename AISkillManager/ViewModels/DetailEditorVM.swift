@@ -6,6 +6,7 @@ enum DetailEditorError: Error {
 }
 
 @Observable
+@MainActor
 final class DetailEditorVM {
     private let store: AppStore
 
@@ -40,5 +41,11 @@ final class DetailEditorVM {
         boundItem = updated
         editingContent = updated.rawContent
         store.updateItem(updated)
+    }
+
+    /// Clear current binding (e.g., after deleting the bound item).
+    func unbind() {
+        boundItem = nil
+        editingContent = ""
     }
 }
