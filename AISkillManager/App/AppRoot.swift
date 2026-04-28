@@ -1,7 +1,14 @@
 import SwiftUI
 
 struct AppRoot: View {
-    @State private var store = AppStore.makeDefault()
+    @State private var store: AppStore
+    @State private var editor: DetailEditorVM
+
+    init() {
+        let s = AppStore.makeDefault()
+        _store = State(initialValue: s)
+        _editor = State(initialValue: DetailEditorVM(store: s))
+    }
 
     var body: some View {
         NavigationSplitView {
@@ -9,11 +16,17 @@ struct AppRoot: View {
         } content: {
             ItemListView(store: store)
         } detail: {
-            DetailView(store: store)
+            DetailView(store: store, editor: editor)
         }
         .frame(minWidth: 1000, minHeight: 600)
         .task {
             await store.loadAll()
+            if let item = store.currentItem, editor.boundItem == nil {
+                editor.bind(to: item)
+            }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in
+            Task { await refreshOnFocus() }
         }
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
@@ -22,6 +35,19 @@ struct AppRoot: View {
                 } label: {
                     Label("刷新", systemImage: "arrow.clockwise")
                 }
+            }
+        }
+    }
+
+    /// Focus-refresh policy (spec §7.5 simplified):
+    /// - User NOT editing → rescan and silently update editor binding to current item.
+    /// - User IS editing → rescan but keep buffer untouched; on save, buffer wins over disk.
+    private func refreshOnFocus() async {
+        let wasEditing = editor.isDirty
+        await store.loadAll()
+        if !wasEditing {
+            if let item = store.currentItem {
+                editor.bind(to: item)
             }
         }
     }
