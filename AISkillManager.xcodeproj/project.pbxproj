@@ -10,6 +10,7 @@
 		0EF75180E8857625FD7A541E /* SaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30BBD1CF36BE1553C3006C0 /* SaveTests.swift */; };
 		0FCF22D5C1C0083028CC767D /* DirectorySkillRepoBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C3ED76D93B87D3760F13D5 /* DirectorySkillRepoBaseTests.swift */; };
 		28AA38473CB28B98EFD6A151 /* SourceKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7881774EC87AE9C17718DF1E /* SourceKind.swift */; };
+		2C86EE86DC8FB7AF30687A02 /* NewItemSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600C6EBE0149891D10C51E20 /* NewItemSheet.swift */; };
 		3CBD0C5BF9E06C1E16F0FF5C /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B36BDB16E790DF0E2384444 /* DetailView.swift */; };
 		411D4BE74D822A2FB8AE9FCD /* CursorRulesRepoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC3913CA7A36E9666E76963 /* CursorRulesRepoTests.swift */; };
 		419C4BA5B9B83DDC51046E9E /* CodexSkillsRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C71990FDF4B1ADE40ED9C2B /* CodexSkillsRepo.swift */; };
@@ -68,6 +69,7 @@
 		3EF4D8D1EC04CFDDED52F26D /* ClaudeSkillsRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudeSkillsRepo.swift; sourceTree = "<group>"; };
 		3F243EE249031A93992BAFF1 /* AtomicWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicWriter.swift; sourceTree = "<group>"; };
 		54ED7C51277DAFD8B6607C8D /* PreferencesStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesStoreTests.swift; sourceTree = "<group>"; };
+		600C6EBE0149891D10C51E20 /* NewItemSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemSheet.swift; sourceTree = "<group>"; };
 		64F122FF0179E158B08C6C02 /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
 		6AC3913CA7A36E9666E76963 /* CursorRulesRepoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CursorRulesRepoTests.swift; sourceTree = "<group>"; };
 		708632DD082380E6D47CE76A /* SkillItemID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillItemID.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			children = (
 				1B36BDB16E790DF0E2384444 /* DetailView.swift */,
 				8D53E8E1A49B88CA8F889416 /* ItemListView.swift */,
+				600C6EBE0149891D10C51E20 /* NewItemSheet.swift */,
 				DAA85E73DA209D4135748E09 /* SidebarView.swift */,
 			);
 			path = Views;
@@ -372,6 +375,7 @@
 				3CBD0C5BF9E06C1E16F0FF5C /* DetailView.swift in Sources */,
 				EB8F5B5F0586C599A31024E5 /* DirectorySkillRepoBase.swift in Sources */,
 				A2F3F413E91FCF5CAD477C25 /* ItemListView.swift in Sources */,
+				2C86EE86DC8FB7AF30687A02 /* NewItemSheet.swift in Sources */,
 				CBF86D8745C9DFE92498F7C3 /* PreferencesStore.swift in Sources */,
 				F0EF0292D9E979AB5CBE0D4C /* Project.swift in Sources */,
 				70151E255FB52F58B7D5CFCF /* ProjectRegistry.swift in Sources */,

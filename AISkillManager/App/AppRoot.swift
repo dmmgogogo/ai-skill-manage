@@ -1,18 +1,22 @@
 import SwiftUI
 
 struct AppRoot: View {
+    @State private var registry: ProjectRegistry
     @State private var store: AppStore
     @State private var editor: DetailEditorVM
+    @State private var showNewItemSheet = false
 
     init() {
-        let s = AppStore.makeDefault()
+        let r = ProjectRegistry.makeDefault()
+        let s = AppStore.makeDefault(registry: r)
+        _registry = State(initialValue: r)
         _store = State(initialValue: s)
         _editor = State(initialValue: DetailEditorVM(store: s))
     }
 
     var body: some View {
         NavigationSplitView {
-            SidebarView(store: store)
+            SidebarView(store: store, registry: registry)
         } content: {
             ItemListView(store: store)
         } detail: {
@@ -31,17 +35,24 @@ struct AppRoot: View {
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button {
+                    showNewItemSheet = true
+                } label: {
+                    Label("新建", systemImage: "plus")
+                }
+            }
+            ToolbarItem(placement: .primaryAction) {
+                Button {
                     Task { await store.loadAll() }
                 } label: {
                     Label("刷新", systemImage: "arrow.clockwise")
                 }
             }
         }
+        .sheet(isPresented: $showNewItemSheet) {
+            NewItemSheet(store: store, isPresented: $showNewItemSheet)
+        }
     }
 
-    /// Focus-refresh policy (spec §7.5 simplified):
-    /// - User NOT editing → rescan and silently update editor binding to current item.
-    /// - User IS editing → rescan but keep buffer untouched; on save, buffer wins over disk.
     private func refreshOnFocus() async {
         let wasEditing = editor.isDirty
         await store.loadAll()

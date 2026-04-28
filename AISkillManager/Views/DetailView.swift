@@ -5,6 +5,8 @@ struct DetailView: View {
     @Bindable var editor: DetailEditorVM
 
     @State private var saveError: String?
+    @State private var showDeleteConfirm = false
+    @State private var deleteError: String?
 
     var body: some View {
         Group {
@@ -29,6 +31,8 @@ struct DetailView: View {
         .onChange(of: store.currentItem) { _, newItem in
             if let newItem {
                 editor.bind(to: newItem)
+            } else {
+                editor.unbind()
             }
         }
         .onAppear {
@@ -43,6 +47,23 @@ struct DetailView: View {
             Button("好") { saveError = nil }
         } message: {
             Text(saveError ?? "")
+        }
+        .alert("删除「\(editor.boundItem?.name ?? "")」？",
+               isPresented: $showDeleteConfirm) {
+            Button("取消", role: .cancel) { }
+            Button("移到废纸篓", role: .destructive) {
+                doDelete()
+            }
+        } message: {
+            Text("条目会被移到 macOS 废纸篓，可在那里恢复。")
+        }
+        .alert("删除失败", isPresented: Binding(
+            get: { deleteError != nil },
+            set: { if !$0 { deleteError = nil } }
+        )) {
+            Button("好") { deleteError = nil }
+        } message: {
+            Text(deleteError ?? "")
         }
     }
 
@@ -75,6 +96,12 @@ struct DetailView: View {
             } label: {
                 Label("复制路径", systemImage: "doc.on.doc")
             }
+            Button(role: .destructive) {
+                showDeleteConfirm = true
+            } label: {
+                Label("删除", systemImage: "trash")
+            }
+            .help("移到废纸篓")
             Button {
                 doSave()
             } label: {
@@ -107,6 +134,22 @@ struct DetailView: View {
             try editor.save()
         } catch {
             saveError = (error as NSError).localizedDescription
+        }
+    }
+
+    private func doDelete() {
+        guard let item = editor.boundItem else { return }
+        Task { @MainActor in
+            do {
+                try await store.deleteItem(item)
+                if let next = store.currentItem {
+                    editor.bind(to: next)
+                } else {
+                    editor.unbind()
+                }
+            } catch {
+                deleteError = (error as NSError).localizedDescription
+            }
         }
     }
 }

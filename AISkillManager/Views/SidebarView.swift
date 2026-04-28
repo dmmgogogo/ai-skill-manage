@@ -1,7 +1,11 @@
 import SwiftUI
+import AppKit
 
 struct SidebarView: View {
     @Bindable var store: AppStore
+    @Bindable var registry: ProjectRegistry
+
+    @State private var addProjectError: String?
 
     var body: some View {
         List(selection: Binding(
@@ -13,16 +17,72 @@ struct SidebarView: View {
             }
         )) {
             Section("用户级") {
-                ForEach(store.allSourceKeys, id: \.self) { key in
+                ForEach(userSourceKeys, id: \.self) { key in
                     if let meta = store.sourceMeta(for: key) {
                         sidebarRow(key: key, meta: meta)
                             .tag(Optional(key))
                     }
                 }
             }
+
+            ForEach(registry.projects) { project in
+                Section {
+                    ForEach(projectSourceKeys(for: project), id: \.self) { key in
+                        if let meta = store.sourceMeta(for: key) {
+                            sidebarRow(key: key, meta: meta)
+                                .tag(Optional(key))
+                        }
+                    }
+                } header: {
+                    HStack {
+                        Text("项目: \(project.name)")
+                        Spacer()
+                        Button(role: .destructive) {
+                            removeProject(project.id)
+                        } label: {
+                            Image(systemName: "minus.circle")
+                                .foregroundStyle(.tertiary)
+                        }
+                        .buttonStyle(.plain)
+                        .help("移除项目（不删除磁盘上的目录）")
+                    }
+                }
+            }
+
+            Section {
+                Button {
+                    presentOpenPanel()
+                } label: {
+                    Label("添加项目目录", systemImage: "plus.rectangle.on.folder")
+                        .foregroundStyle(.tint)
+                }
+                .buttonStyle(.plain)
+            }
         }
         .listStyle(.sidebar)
         .frame(minWidth: 200)
+        .alert("添加项目失败",
+               isPresented: Binding(get: { addProjectError != nil },
+                                    set: { if !$0 { addProjectError = nil } })) {
+            Button("好") { addProjectError = nil }
+        } message: {
+            Text(addProjectError ?? "")
+        }
+    }
+
+    private var userSourceKeys: [AppStore.SourceKey] {
+        store.allSourceKeys.filter {
+            if let meta = store.sourceMeta(for: $0), meta.scope == .user { return true }
+            return false
+        }
+    }
+
+    private func projectSourceKeys(for project: Project) -> [AppStore.SourceKey] {
+        store.allSourceKeys.filter { key in
+            guard let meta = store.sourceMeta(for: key) else { return false }
+            if case .project(let p) = meta.scope, p.id == project.id { return true }
+            return false
+        }
     }
 
     @ViewBuilder
@@ -43,6 +103,31 @@ struct SidebarView: View {
                 .padding(.horizontal, 6)
                 .background(Color.secondary.opacity(0.15))
                 .clipShape(Capsule())
+        }
+    }
+
+    private func presentOpenPanel() {
+        let panel = NSOpenPanel()
+        panel.canChooseFiles = false
+        panel.canChooseDirectories = true
+        panel.allowsMultipleSelection = false
+        panel.message = "选择一个项目根目录（包含 .claude/skills、.codex/skills、.cursor/rules 任一即可）"
+        panel.prompt = "添加"
+        guard panel.runModal() == .OK, let url = panel.url else { return }
+
+        let project = Project(name: url.lastPathComponent, path: url)
+        Task { @MainActor in
+            do {
+                try await store.addProject(project)
+            } catch {
+                addProjectError = (error as NSError).localizedDescription
+            }
+        }
+    }
+
+    private func removeProject(_ id: UUID) {
+        Task { @MainActor in
+            try? await store.removeProject(projectID: id)
         }
     }
 }
