@@ -17,6 +17,7 @@
 		54493854C42B31E53923237F /* ClaudeSkillsRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF4D8D1EC04CFDDED52F26D /* ClaudeSkillsRepo.swift */; };
 		56A42DE5D3EEE79D64FCC0B4 /* CursorRulesRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7A8F7190CA980A10A0E29C /* CursorRulesRepo.swift */; };
 		6C7C349AE4D3F4FB31909B06 /* dir-source in Resources */ = {isa = PBXBuildFile; fileRef = F89F090AE1A1F8D810BA699B /* dir-source */; };
+		738933754D77244C25B68A07 /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F122FF0179E158B08C6C02 /* AppStore.swift */; };
 		770D3EDB10B5BCA855BBE0E9 /* YAMLFrontmatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117FDE8C6FBCFA77CFA20799 /* YAMLFrontmatterTests.swift */; };
 		7A5BAB819921FE85A0AED128 /* CursorSkillsRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C6E28248DA1CC94740E83C /* CursorSkillsRepo.swift */; };
 		7AA564264DB5C345B1686521 /* SkillItemID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708632DD082380E6D47CE76A /* SkillItemID.swift */; };
@@ -24,6 +25,7 @@
 		9ED3B82B58702504E94C3B59 /* SkillItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62292AA1601C8EAB694D90B /* SkillItem.swift */; };
 		C90B44E9E81323FC926A42C4 /* YAMLFrontmatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4ABED7488C6CC66456198EA /* YAMLFrontmatter.swift */; };
 		DEB649D27D4266B183EBD8A9 /* AISkillManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D59857B83F90C9D3AE910F /* AISkillManagerApp.swift */; };
+		E46B5FF7CC1A736B6FEF9234 /* AppStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C77A00599D756AF78002CF /* AppStoreTests.swift */; };
 		EB8F5B5F0586C599A31024E5 /* DirectorySkillRepoBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FB3B7C24891050F640A927 /* DirectorySkillRepoBase.swift */; };
 		F0EF0292D9E979AB5CBE0D4C /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30FAE5F3E438EC8E9C41E88 /* Project.swift */; };
 		F3B296E0E8DCF4C089EB797D /* cursor-rules in Resources */ = {isa = PBXBuildFile; fileRef = 8C989A4CA8FC5B63369A3661 /* cursor-rules */; };
@@ -45,6 +47,7 @@
 		117FDE8C6FBCFA77CFA20799 /* YAMLFrontmatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YAMLFrontmatterTests.swift; sourceTree = "<group>"; };
 		32C3ED76D93B87D3760F13D5 /* DirectorySkillRepoBaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectorySkillRepoBaseTests.swift; sourceTree = "<group>"; };
 		3EF4D8D1EC04CFDDED52F26D /* ClaudeSkillsRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudeSkillsRepo.swift; sourceTree = "<group>"; };
+		64F122FF0179E158B08C6C02 /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
 		6AC3913CA7A36E9666E76963 /* CursorRulesRepoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CursorRulesRepoTests.swift; sourceTree = "<group>"; };
 		708632DD082380E6D47CE76A /* SkillItemID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillItemID.swift; sourceTree = "<group>"; };
 		7881774EC87AE9C17718DF1E /* SourceKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceKind.swift; sourceTree = "<group>"; };
@@ -52,6 +55,7 @@
 		B278093D3AC0B67662DB0FA6 /* SkillRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillRepository.swift; sourceTree = "<group>"; };
 		B2D59857B83F90C9D3AE910F /* AISkillManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AISkillManagerApp.swift; sourceTree = "<group>"; };
 		D4ABED7488C6CC66456198EA /* YAMLFrontmatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YAMLFrontmatter.swift; sourceTree = "<group>"; };
+		D6C77A00599D756AF78002CF /* AppStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreTests.swift; sourceTree = "<group>"; };
 		DD4D8B011E86F5A2BA387C2E /* AISkillManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AISkillManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE564374E0DAFDD4A123634E /* SourceScope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceScope.swift; sourceTree = "<group>"; };
 		E62292AA1601C8EAB694D90B /* SkillItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillItem.swift; sourceTree = "<group>"; };
@@ -126,9 +130,18 @@
 			path = Infrastructure;
 			sourceTree = "<group>";
 		};
+		A41C2CCFBA31E8127A318097 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				64F122FF0179E158B08C6C02 /* AppStore.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		A9E8D33CE440820792DB4DD0 /* AISkillManagerTests */ = {
 			isa = PBXGroup;
 			children = (
+				D6C77A00599D756AF78002CF /* AppStoreTests.swift */,
 				6AC3913CA7A36E9666E76963 /* CursorRulesRepoTests.swift */,
 				32C3ED76D93B87D3760F13D5 /* DirectorySkillRepoBaseTests.swift */,
 				ED3CBB976CEC13EA4D14E39D /* PlaceholderTest.swift */,
@@ -154,6 +167,7 @@
 				7C2ECAB81BE6B12F1B360BE0 /* Infrastructure */,
 				433B1CF3B987451DB2501989 /* Models */,
 				24CF6D9BC33B2B2C2A30B1D4 /* Repositories */,
+				A41C2CCFBA31E8127A318097 /* ViewModels */,
 			);
 			path = AISkillManager;
 			sourceTree = "<group>";
@@ -254,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E46B5FF7CC1A736B6FEF9234 /* AppStoreTests.swift in Sources */,
 				411D4BE74D822A2FB8AE9FCD /* CursorRulesRepoTests.swift in Sources */,
 				0FCF22D5C1C0083028CC767D /* DirectorySkillRepoBaseTests.swift in Sources */,
 				7D41F041CD3B38B11FEFB02D /* PlaceholderTest.swift in Sources */,
@@ -266,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEB649D27D4266B183EBD8A9 /* AISkillManagerApp.swift in Sources */,
+				738933754D77244C25B68A07 /* AppStore.swift in Sources */,
 				54493854C42B31E53923237F /* ClaudeSkillsRepo.swift in Sources */,
 				419C4BA5B9B83DDC51046E9E /* CodexSkillsRepo.swift in Sources */,
 				56A42DE5D3EEE79D64FCC0B4 /* CursorRulesRepo.swift in Sources */,
