@@ -288,7 +288,7 @@ Infrastructure 层
 > 详细任务由 writing-plans skill 在下一阶段产出，此处只作整体节奏。
 
 - **M1（基线）**: 项目初始化、4 层骨架、`SkillRepository` 协议、用户级 4 个源扫描 + 显示 List。**目标：能看，不能改。** ✅ **完成于 2026-04-28**，实施计划 `docs/superpowers/plans/2026-04-28-m1-baseline.md`，git tag `m1-baseline`，32 个单元测试 PASS。
-- **M2（编辑闭环）**: Raw 编辑器、保存、聚焦刷新（简化版）、状态栏。**目标：能完整 read+edit+save。**
+- **M2（编辑闭环）**: Raw 编辑器、保存、聚焦刷新（简化版）、状态栏。**目标：能完整 read+edit+save。** ✅ **完成于 2026-04-28**，实施计划 `docs/superpowers/plans/2026-04-28-m2-editing.md`，git tag `m2-editing`，47 个单元测试 PASS。
 - **M3（CRUD 完整）**: 新建 / 删除 / 项目添加。**目标：能 CRUD。**
 - **M4（打磨）**: 全局搜索、错误处理细节、空态/异常文案、键盘快捷键完善。**目标：日常可用。**
 - **M5（分发）**: Sparkle 集成、CI 自动 sign + 公证、首个 GitHub Release。**目标：能给朋友发 DMG。**
