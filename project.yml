@@ -44,6 +44,10 @@ targets:
     platform: macOS
     sources:
       - path: AISkillManagerTests
+        excludes:
+          - "Fixtures"
+      - path: AISkillManagerTests/Fixtures/dir-source
+        type: folder
     dependencies:
       - target: AISkillManager
     settings:
