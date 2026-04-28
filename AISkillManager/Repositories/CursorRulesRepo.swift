@@ -89,4 +89,53 @@ final class CursorRulesRepo: SkillRepository {
             hasSubdirectories: false
         )
     }
+
+    func createSkill(name: String) throws -> SkillItem {
+        if let reason = SkillNameValidator.reasonInvalid(name) {
+            throw SkillRepositoryError.invalidName(reason: reason)
+        }
+
+        if !FileManager.default.fileExists(atPath: root.path) {
+            try FileManager.default.createDirectory(at: root, withIntermediateDirectories: true)
+        }
+
+        let fileURL = root.appendingPathComponent("\(name).mdc")
+        if FileManager.default.fileExists(atPath: fileURL.path) {
+            throw SkillRepositoryError.nameCollision(name: name, existingPath: fileURL)
+        }
+
+        let template = """
+        ---
+        alwaysApply: false
+        description: 一句话描述此 rule 何时生效
+        ---
+
+        # \(name)
+
+        在这里写 rule 内容。
+        """
+        try template.write(to: fileURL, atomically: true, encoding: .utf8)
+
+        let attrs = (try? FileManager.default.attributesOfItem(atPath: fileURL.path)) ?? [:]
+        let mtime = (attrs[.modificationDate] as? Date) ?? Date()
+        let size = (attrs[.size] as? Int) ?? 0
+
+        return SkillItem(
+            id: SkillItemID.make(kind: kind, scope: scope, mainFileURL: fileURL),
+            kind: kind,
+            scope: scope,
+            mainFileURL: fileURL,
+            containerURL: nil,
+            name: name,
+            description: "一句话描述此 rule 何时生效",
+            rawContent: template,
+            fileModifiedAt: mtime,
+            sizeBytes: size,
+            hasSubdirectories: false
+        )
+    }
+
+    func deleteItem(_ item: SkillItem) throws {
+        try FileManager.default.trashItem(at: item.mainFileURL, resultingItemURL: nil)
+    }
 }

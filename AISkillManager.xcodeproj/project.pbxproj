@@ -32,6 +32,7 @@
 		A2F3F413E91FCF5CAD477C25 /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D53E8E1A49B88CA8F889416 /* ItemListView.swift */; };
 		C5B1254B0D92A2136017463A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4916C73076E018BB611BBC5 /* Assets.xcassets */; };
 		C90B44E9E81323FC926A42C4 /* YAMLFrontmatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4ABED7488C6CC66456198EA /* YAMLFrontmatter.swift */; };
+		CD21DAB942D4B12DEBC88141 /* CreateDeleteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28A63EFEFE93664EC46C90E /* CreateDeleteTests.swift */; };
 		DEB649D27D4266B183EBD8A9 /* AISkillManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D59857B83F90C9D3AE910F /* AISkillManagerApp.swift */; };
 		E46B5FF7CC1A736B6FEF9234 /* AppStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C77A00599D756AF78002CF /* AppStoreTests.swift */; };
 		EB8F5B5F0586C599A31024E5 /* DirectorySkillRepoBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FB3B7C24891050F640A927 /* DirectorySkillRepoBase.swift */; };
@@ -77,6 +78,7 @@
 		E62292AA1601C8EAB694D90B /* SkillItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillItem.swift; sourceTree = "<group>"; };
 		EC4785B3C7CBC3C9BDD2E834 /* AISkillManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AISkillManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED3CBB976CEC13EA4D14E39D /* PlaceholderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTest.swift; sourceTree = "<group>"; };
+		F28A63EFEFE93664EC46C90E /* CreateDeleteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDeleteTests.swift; sourceTree = "<group>"; };
 		F30BBD1CF36BE1553C3006C0 /* SaveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveTests.swift; sourceTree = "<group>"; };
 		F30FAE5F3E438EC8E9C41E88 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		F3AEB663FE8174780E3451B7 /* AppRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRoot.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				D6C77A00599D756AF78002CF /* AppStoreTests.swift */,
+				F28A63EFEFE93664EC46C90E /* CreateDeleteTests.swift */,
 				6AC3913CA7A36E9666E76963 /* CursorRulesRepoTests.swift */,
 				0E92BA8BC6FD2BD9BC5D4460 /* DetailEditorVMTests.swift */,
 				32C3ED76D93B87D3760F13D5 /* DirectorySkillRepoBaseTests.swift */,
@@ -329,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E46B5FF7CC1A736B6FEF9234 /* AppStoreTests.swift in Sources */,
+				CD21DAB942D4B12DEBC88141 /* CreateDeleteTests.swift in Sources */,
 				411D4BE74D822A2FB8AE9FCD /* CursorRulesRepoTests.swift in Sources */,
 				718984EB2832A4A9DD147F9D /* DetailEditorVMTests.swift in Sources */,
 				0FCF22D5C1C0083028CC767D /* DirectorySkillRepoBaseTests.swift in Sources */,

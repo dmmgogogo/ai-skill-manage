@@ -111,4 +111,54 @@ class DirectorySkillRepoBase: SkillRepository {
             hasSubdirectories: item.hasSubdirectories
         )
     }
+
+    func createSkill(name: String) throws -> SkillItem {
+        if let reason = SkillNameValidator.reasonInvalid(name) {
+            throw SkillRepositoryError.invalidName(reason: reason)
+        }
+
+        let containerURL = root.appendingPathComponent(name)
+        if FileManager.default.fileExists(atPath: containerURL.path) {
+            throw SkillRepositoryError.nameCollision(name: name, existingPath: containerURL)
+        }
+
+        try FileManager.default.createDirectory(at: containerURL, withIntermediateDirectories: true)
+        let mainFileURL = containerURL.appendingPathComponent("SKILL.md")
+        let template = """
+        ---
+        name: \(name)
+        description: 一句话描述何时调用此 skill
+        ---
+
+        # \(name)
+
+        在这里写 skill 内容。
+        """
+        try template.write(to: mainFileURL, atomically: true, encoding: .utf8)
+
+        let attrs = (try? FileManager.default.attributesOfItem(atPath: mainFileURL.path)) ?? [:]
+        let mtime = (attrs[.modificationDate] as? Date) ?? Date()
+        let size = (attrs[.size] as? Int) ?? 0
+
+        return SkillItem(
+            id: SkillItemID.make(kind: kind, scope: scope, mainFileURL: mainFileURL),
+            kind: kind,
+            scope: scope,
+            mainFileURL: mainFileURL,
+            containerURL: containerURL,
+            name: name,
+            description: "一句话描述何时调用此 skill",
+            rawContent: template,
+            fileModifiedAt: mtime,
+            sizeBytes: size,
+            hasSubdirectories: false
+        )
+    }
+
+    func deleteItem(_ item: SkillItem) throws {
+        guard let containerURL = item.containerURL else {
+            throw SkillRepositoryError.invalidName(reason: "目录式 skill 必须有 containerURL")
+        }
+        try FileManager.default.trashItem(at: containerURL, resultingItemURL: nil)
+    }
 }
