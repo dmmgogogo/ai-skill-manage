@@ -84,4 +84,20 @@ final class AppStore {
         selectedSourceKey = key
         selectedItemID = itemsBySource[key]?.first?.id
     }
+
+    /// Replace an existing item in itemsBySource keyed by its source.
+    /// Used after save/edit to reflect updated content/mtime without a full rescan.
+    func updateItem(_ updated: SkillItem) {
+        let key = Self.sourceKey(kind: updated.kind, scope: updated.scope)
+        guard var items = itemsBySource[key] else { return }
+        guard let idx = items.firstIndex(where: { $0.id == updated.id }) else { return }
+        items[idx] = updated
+        itemsBySource[key] = items
+    }
+
+    /// Look up the repository that owns the given item (by kind + scope).
+    func repository(for item: SkillItem) -> SkillRepository? {
+        let key = Self.sourceKey(kind: item.kind, scope: item.scope)
+        return repos.first { Self.sourceKey(kind: $0.kind, scope: $0.scope) == key }
+    }
 }

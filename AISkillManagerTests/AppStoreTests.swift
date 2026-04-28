@@ -79,4 +79,30 @@ final class AppStoreTests: XCTestCase {
         store.selectedItemID = SkillItemID(kind: .claudeSkills, scopeKey: "user", pathFingerprint: "deadbeef0000")
         XCTAssertNil(store.currentItem)
     }
+
+    @MainActor
+    func test_updateItem_replaces_item_in_memory() async {
+        let store = makeStubStore()
+        await store.loadAll()
+        let claudeKey = AppStore.sourceKey(kind: .claudeSkills, scope: .user)
+        let original = store.itemsBySource[claudeKey]!.first!
+
+        var modified = original
+        modified.name = "renamed-in-memory"
+        store.updateItem(modified)
+
+        XCTAssertEqual(store.itemsBySource[claudeKey]?.first?.name, "renamed-in-memory")
+    }
+
+    @MainActor
+    func test_repository_for_item_returns_matching_repo() async {
+        let store = makeStubStore()
+        await store.loadAll()
+        let claudeKey = AppStore.sourceKey(kind: .claudeSkills, scope: .user)
+        let item = store.itemsBySource[claudeKey]!.first!
+
+        let repo = store.repository(for: item)
+        XCTAssertNotNil(repo)
+        XCTAssertEqual(repo?.kind, .claudeSkills)
+    }
 }
