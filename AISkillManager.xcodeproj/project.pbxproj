@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EF75180E8857625FD7A541E /* SaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30BBD1CF36BE1553C3006C0 /* SaveTests.swift */; };
 		0FCF22D5C1C0083028CC767D /* DirectorySkillRepoBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C3ED76D93B87D3760F13D5 /* DirectorySkillRepoBaseTests.swift */; };
 		28AA38473CB28B98EFD6A151 /* SourceKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7881774EC87AE9C17718DF1E /* SourceKind.swift */; };
 		3CBD0C5BF9E06C1E16F0FF5C /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B36BDB16E790DF0E2384444 /* DetailView.swift */; };
@@ -33,6 +34,7 @@
 		EB8F5B5F0586C599A31024E5 /* DirectorySkillRepoBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FB3B7C24891050F640A927 /* DirectorySkillRepoBase.swift */; };
 		F0EF0292D9E979AB5CBE0D4C /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30FAE5F3E438EC8E9C41E88 /* Project.swift */; };
 		F3B296E0E8DCF4C089EB797D /* cursor-rules in Resources */ = {isa = PBXBuildFile; fileRef = 8C989A4CA8FC5B63369A3661 /* cursor-rules */; };
+		F9F9EB5E98B21778C3C826F3 /* AtomicWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F243EE249031A93992BAFF1 /* AtomicWriter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,7 @@
 		1B36BDB16E790DF0E2384444 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		32C3ED76D93B87D3760F13D5 /* DirectorySkillRepoBaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectorySkillRepoBaseTests.swift; sourceTree = "<group>"; };
 		3EF4D8D1EC04CFDDED52F26D /* ClaudeSkillsRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudeSkillsRepo.swift; sourceTree = "<group>"; };
+		3F243EE249031A93992BAFF1 /* AtomicWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicWriter.swift; sourceTree = "<group>"; };
 		64F122FF0179E158B08C6C02 /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
 		6AC3913CA7A36E9666E76963 /* CursorRulesRepoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CursorRulesRepoTests.swift; sourceTree = "<group>"; };
 		708632DD082380E6D47CE76A /* SkillItemID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillItemID.swift; sourceTree = "<group>"; };
@@ -68,6 +71,7 @@
 		E62292AA1601C8EAB694D90B /* SkillItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillItem.swift; sourceTree = "<group>"; };
 		EC4785B3C7CBC3C9BDD2E834 /* AISkillManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AISkillManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED3CBB976CEC13EA4D14E39D /* PlaceholderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTest.swift; sourceTree = "<group>"; };
+		F30BBD1CF36BE1553C3006C0 /* SaveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveTests.swift; sourceTree = "<group>"; };
 		F30FAE5F3E438EC8E9C41E88 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		F3AEB663FE8174780E3451B7 /* AppRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRoot.swift; sourceTree = "<group>"; };
 		F3FB3B7C24891050F640A927 /* DirectorySkillRepoBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectorySkillRepoBase.swift; sourceTree = "<group>"; };
@@ -133,6 +137,7 @@
 		7C2ECAB81BE6B12F1B360BE0 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				3F243EE249031A93992BAFF1 /* AtomicWriter.swift */,
 				D4ABED7488C6CC66456198EA /* YAMLFrontmatter.swift */,
 			);
 			path = Infrastructure;
@@ -163,6 +168,7 @@
 				6AC3913CA7A36E9666E76963 /* CursorRulesRepoTests.swift */,
 				32C3ED76D93B87D3760F13D5 /* DirectorySkillRepoBaseTests.swift */,
 				ED3CBB976CEC13EA4D14E39D /* PlaceholderTest.swift */,
+				F30BBD1CF36BE1553C3006C0 /* SaveTests.swift */,
 				117FDE8C6FBCFA77CFA20799 /* YAMLFrontmatterTests.swift */,
 				BC9064E69A70BAD6E76492DB /* Fixtures */,
 			);
@@ -300,6 +306,7 @@
 				411D4BE74D822A2FB8AE9FCD /* CursorRulesRepoTests.swift in Sources */,
 				0FCF22D5C1C0083028CC767D /* DirectorySkillRepoBaseTests.swift in Sources */,
 				7D41F041CD3B38B11FEFB02D /* PlaceholderTest.swift in Sources */,
+				0EF75180E8857625FD7A541E /* SaveTests.swift in Sources */,
 				770D3EDB10B5BCA855BBE0E9 /* YAMLFrontmatterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,6 +318,7 @@
 				DEB649D27D4266B183EBD8A9 /* AISkillManagerApp.swift in Sources */,
 				5577C44D81276CCB9FDF3D54 /* AppRoot.swift in Sources */,
 				738933754D77244C25B68A07 /* AppStore.swift in Sources */,
+				F9F9EB5E98B21778C3C826F3 /* AtomicWriter.swift in Sources */,
 				54493854C42B31E53923237F /* ClaudeSkillsRepo.swift in Sources */,
 				419C4BA5B9B83DDC51046E9E /* CodexSkillsRepo.swift in Sources */,
 				56A42DE5D3EEE79D64FCC0B4 /* CursorRulesRepo.swift in Sources */,

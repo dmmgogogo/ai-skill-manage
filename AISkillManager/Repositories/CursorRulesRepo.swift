@@ -62,4 +62,31 @@ final class CursorRulesRepo: SkillRepository {
             hasSubdirectories: false
         )
     }
+
+    func save(item: SkillItem, content: String) throws -> SkillItem {
+        try AtomicWriter.write(content, to: item.mainFileURL)
+
+        let attrs = try FileManager.default.attributesOfItem(atPath: item.mainFileURL.path)
+        let mtime = (attrs[.modificationDate] as? Date) ?? Date()
+        let size = (attrs[.size] as? Int) ?? 0
+
+        let parsed = YAMLFrontmatter.parseShallow(from: content)
+        let baseName = item.mainFileURL.deletingPathExtension().lastPathComponent
+        let name = parsed.name ?? baseName
+        let desc = parsed.description ?? ""
+
+        return SkillItem(
+            id: item.id,
+            kind: item.kind,
+            scope: item.scope,
+            mainFileURL: item.mainFileURL,
+            containerURL: nil,
+            name: name,
+            description: desc,
+            rawContent: content,
+            fileModifiedAt: mtime,
+            sizeBytes: size,
+            hasSubdirectories: false
+        )
+    }
 }
