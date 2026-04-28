@@ -84,4 +84,16 @@ final class DirectorySkillRepoBaseTests: XCTestCase {
         let items = try repo.listAll()
         XCTAssertTrue(items.isEmpty)
     }
+
+    func test_listAll_includes_symlinked_directories() throws {
+        let linkURL = fixtureRoot.appendingPathComponent("skill-symlinked")
+        let targetURL = fixtureRoot.appendingPathComponent("skill-good")
+        try? FileManager.default.removeItem(at: linkURL)
+        try FileManager.default.createSymbolicLink(at: linkURL, withDestinationURL: targetURL)
+        defer { try? FileManager.default.removeItem(at: linkURL) }
+
+        let items = try makeRepo().listAll()
+        let symlinked = items.first { $0.mainFileURL.path.contains("skill-symlinked") }
+        XCTAssertNotNil(symlinked, "Symlinked skill directory should be included")
+    }
 }
