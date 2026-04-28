@@ -1,0 +1,33 @@
+# Override global ~/.gitignore_global which excludes docs/
+!docs/
+!docs/**
+
+# Brainstorming companion artifacts
+.superpowers/
+
+# macOS
+.DS_Store
+
+# Xcode
+build/
+DerivedData/
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+xcuserdata/
+*.xcuserstate
+*.swiftpm/
+
+# Swift Package Manager
+.build/
+Packages/
+Package.resolved
+
+# IDE
+.vscode/
+.idea/
+.cursor/
+
+# Sparkle / dist
+*.dmg
+*.zip
+appcast.xml
