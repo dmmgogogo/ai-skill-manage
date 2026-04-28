@@ -1,0 +1,37 @@
+import Foundation
+
+struct Preferences: Codable {
+    var projects: [Project] = []
+}
+
+final class PreferencesStore {
+    private let fileURL: URL
+
+    init(fileURL: URL) {
+        self.fileURL = fileURL
+    }
+
+    static func defaultURL() -> URL {
+        let appSupport = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
+        let dir = appSupport.appendingPathComponent("Triskill")
+        try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
+        return dir.appendingPathComponent("preferences.json")
+    }
+
+    func load() -> Preferences {
+        guard let data = try? Data(contentsOf: fileURL),
+              let prefs = try? JSONDecoder().decode(Preferences.self, from: data) else {
+            return Preferences()
+        }
+        return prefs
+    }
+
+    func save(_ prefs: Preferences) throws {
+        let parent = fileURL.deletingLastPathComponent()
+        try FileManager.default.createDirectory(at: parent, withIntermediateDirectories: true)
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+        let data = try encoder.encode(prefs)
+        try data.write(to: fileURL, options: [.atomic])
+    }
+}
