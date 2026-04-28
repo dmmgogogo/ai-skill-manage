@@ -3,6 +3,8 @@
 !docs/**
 !AISkillManagerTests/**
 !AISkillManagerTests/**/*
+!scripts/
+!scripts/**
 .build/
 .cursor/
 .DS_Store
