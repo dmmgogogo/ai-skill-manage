@@ -48,6 +48,8 @@ targets:
           - "Fixtures"
       - path: AISkillManagerTests/Fixtures/dir-source
         type: folder
+      - path: AISkillManagerTests/Fixtures/cursor-rules
+        type: folder
     dependencies:
       - target: AISkillManager
     settings:

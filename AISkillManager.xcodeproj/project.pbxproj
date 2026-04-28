@@ -9,11 +9,16 @@
 /* Begin PBXBuildFile section */
 		0FCF22D5C1C0083028CC767D /* DirectorySkillRepoBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C3ED76D93B87D3760F13D5 /* DirectorySkillRepoBaseTests.swift */; };
 		28AA38473CB28B98EFD6A151 /* SourceKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7881774EC87AE9C17718DF1E /* SourceKind.swift */; };
+		411D4BE74D822A2FB8AE9FCD /* CursorRulesRepoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC3913CA7A36E9666E76963 /* CursorRulesRepoTests.swift */; };
+		419C4BA5B9B83DDC51046E9E /* CodexSkillsRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C71990FDF4B1ADE40ED9C2B /* CodexSkillsRepo.swift */; };
 		475BB9D248CE07FCC731D68B /* Yams in Frameworks */ = {isa = PBXBuildFile; productRef = 6C9B7369E760D8E63DF908B5 /* Yams */; };
 		483506AA81EAF2BEA17B0D78 /* SourceScope.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE564374E0DAFDD4A123634E /* SourceScope.swift */; };
 		500775ACF1EF5BE2C4E61C26 /* SkillRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278093D3AC0B67662DB0FA6 /* SkillRepository.swift */; };
+		54493854C42B31E53923237F /* ClaudeSkillsRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF4D8D1EC04CFDDED52F26D /* ClaudeSkillsRepo.swift */; };
+		56A42DE5D3EEE79D64FCC0B4 /* CursorRulesRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7A8F7190CA980A10A0E29C /* CursorRulesRepo.swift */; };
 		6C7C349AE4D3F4FB31909B06 /* dir-source in Resources */ = {isa = PBXBuildFile; fileRef = F89F090AE1A1F8D810BA699B /* dir-source */; };
 		770D3EDB10B5BCA855BBE0E9 /* YAMLFrontmatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117FDE8C6FBCFA77CFA20799 /* YAMLFrontmatterTests.swift */; };
+		7A5BAB819921FE85A0AED128 /* CursorSkillsRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C6E28248DA1CC94740E83C /* CursorSkillsRepo.swift */; };
 		7AA564264DB5C345B1686521 /* SkillItemID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708632DD082380E6D47CE76A /* SkillItemID.swift */; };
 		7D41F041CD3B38B11FEFB02D /* PlaceholderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3CBB976CEC13EA4D14E39D /* PlaceholderTest.swift */; };
 		9ED3B82B58702504E94C3B59 /* SkillItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62292AA1601C8EAB694D90B /* SkillItem.swift */; };
@@ -21,6 +26,7 @@
 		DEB649D27D4266B183EBD8A9 /* AISkillManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D59857B83F90C9D3AE910F /* AISkillManagerApp.swift */; };
 		EB8F5B5F0586C599A31024E5 /* DirectorySkillRepoBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FB3B7C24891050F640A927 /* DirectorySkillRepoBase.swift */; };
 		F0EF0292D9E979AB5CBE0D4C /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30FAE5F3E438EC8E9C41E88 /* Project.swift */; };
+		F3B296E0E8DCF4C089EB797D /* cursor-rules in Resources */ = {isa = PBXBuildFile; fileRef = 8C989A4CA8FC5B63369A3661 /* cursor-rules */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,10 +40,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03C6E28248DA1CC94740E83C /* CursorSkillsRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CursorSkillsRepo.swift; sourceTree = "<group>"; };
+		0C71990FDF4B1ADE40ED9C2B /* CodexSkillsRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodexSkillsRepo.swift; sourceTree = "<group>"; };
 		117FDE8C6FBCFA77CFA20799 /* YAMLFrontmatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YAMLFrontmatterTests.swift; sourceTree = "<group>"; };
 		32C3ED76D93B87D3760F13D5 /* DirectorySkillRepoBaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectorySkillRepoBaseTests.swift; sourceTree = "<group>"; };
+		3EF4D8D1EC04CFDDED52F26D /* ClaudeSkillsRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudeSkillsRepo.swift; sourceTree = "<group>"; };
+		6AC3913CA7A36E9666E76963 /* CursorRulesRepoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CursorRulesRepoTests.swift; sourceTree = "<group>"; };
 		708632DD082380E6D47CE76A /* SkillItemID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillItemID.swift; sourceTree = "<group>"; };
 		7881774EC87AE9C17718DF1E /* SourceKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceKind.swift; sourceTree = "<group>"; };
+		8C989A4CA8FC5B63369A3661 /* cursor-rules */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "cursor-rules"; path = "AISkillManagerTests/Fixtures/cursor-rules"; sourceTree = SOURCE_ROOT; };
 		B278093D3AC0B67662DB0FA6 /* SkillRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillRepository.swift; sourceTree = "<group>"; };
 		B2D59857B83F90C9D3AE910F /* AISkillManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AISkillManagerApp.swift; sourceTree = "<group>"; };
 		D4ABED7488C6CC66456198EA /* YAMLFrontmatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YAMLFrontmatter.swift; sourceTree = "<group>"; };
@@ -49,6 +60,7 @@
 		F30FAE5F3E438EC8E9C41E88 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		F3FB3B7C24891050F640A927 /* DirectorySkillRepoBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectorySkillRepoBase.swift; sourceTree = "<group>"; };
 		F89F090AE1A1F8D810BA699B /* dir-source */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "dir-source"; path = "AISkillManagerTests/Fixtures/dir-source"; sourceTree = SOURCE_ROOT; };
+		FB7A8F7190CA980A10A0E29C /* CursorRulesRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CursorRulesRepo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +78,10 @@
 		24CF6D9BC33B2B2C2A30B1D4 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				3EF4D8D1EC04CFDDED52F26D /* ClaudeSkillsRepo.swift */,
+				0C71990FDF4B1ADE40ED9C2B /* CodexSkillsRepo.swift */,
+				FB7A8F7190CA980A10A0E29C /* CursorRulesRepo.swift */,
+				03C6E28248DA1CC94740E83C /* CursorSkillsRepo.swift */,
 				F3FB3B7C24891050F640A927 /* DirectorySkillRepoBase.swift */,
 				B278093D3AC0B67662DB0FA6 /* SkillRepository.swift */,
 			);
@@ -113,6 +129,7 @@
 		A9E8D33CE440820792DB4DD0 /* AISkillManagerTests */ = {
 			isa = PBXGroup;
 			children = (
+				6AC3913CA7A36E9666E76963 /* CursorRulesRepoTests.swift */,
 				32C3ED76D93B87D3760F13D5 /* DirectorySkillRepoBaseTests.swift */,
 				ED3CBB976CEC13EA4D14E39D /* PlaceholderTest.swift */,
 				117FDE8C6FBCFA77CFA20799 /* YAMLFrontmatterTests.swift */,
@@ -124,6 +141,7 @@
 		BC9064E69A70BAD6E76492DB /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
+				8C989A4CA8FC5B63369A3661 /* cursor-rules */,
 				F89F090AE1A1F8D810BA699B /* dir-source */,
 			);
 			path = Fixtures;
@@ -224,6 +242,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3B296E0E8DCF4C089EB797D /* cursor-rules in Resources */,
 				6C7C349AE4D3F4FB31909B06 /* dir-source in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				411D4BE74D822A2FB8AE9FCD /* CursorRulesRepoTests.swift in Sources */,
 				0FCF22D5C1C0083028CC767D /* DirectorySkillRepoBaseTests.swift in Sources */,
 				7D41F041CD3B38B11FEFB02D /* PlaceholderTest.swift in Sources */,
 				770D3EDB10B5BCA855BBE0E9 /* YAMLFrontmatterTests.swift in Sources */,
@@ -246,6 +266,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEB649D27D4266B183EBD8A9 /* AISkillManagerApp.swift in Sources */,
+				54493854C42B31E53923237F /* ClaudeSkillsRepo.swift in Sources */,
+				419C4BA5B9B83DDC51046E9E /* CodexSkillsRepo.swift in Sources */,
+				56A42DE5D3EEE79D64FCC0B4 /* CursorRulesRepo.swift in Sources */,
+				7A5BAB819921FE85A0AED128 /* CursorSkillsRepo.swift in Sources */,
 				EB8F5B5F0586C599A31024E5 /* DirectorySkillRepoBase.swift in Sources */,
 				F0EF0292D9E979AB5CBE0D4C /* Project.swift in Sources */,
 				9ED3B82B58702504E94C3B59 /* SkillItem.swift in Sources */,
