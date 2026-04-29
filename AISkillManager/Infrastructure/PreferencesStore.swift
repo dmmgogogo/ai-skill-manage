@@ -3,9 +3,9 @@ import Foundation
 struct Preferences: Codable {
     var projects: [Project] = []
     var apiKey: String = ""
-    var model: String = "gpt-4o"
+    var model: String = "gpt-5.5"
 
-    init(projects: [Project] = [], apiKey: String = "", model: String = "gpt-4o") {
+    init(projects: [Project] = [], apiKey: String = "", model: String = "gpt-5.5") {
         self.projects = projects
         self.apiKey   = apiKey
         self.model    = model
@@ -15,7 +15,7 @@ struct Preferences: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         projects = try container.decodeIfPresent([Project].self, forKey: .projects) ?? []
         apiKey   = try container.decodeIfPresent(String.self,    forKey: .apiKey)   ?? ""
-        model    = try container.decodeIfPresent(String.self,    forKey: .model)    ?? "gpt-4o"
+        model    = try container.decodeIfPresent(String.self,    forKey: .model)    ?? "gpt-5.5"
     }
 }
 

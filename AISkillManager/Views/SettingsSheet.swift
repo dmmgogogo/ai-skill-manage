@@ -1,13 +1,13 @@
 import SwiftUI
 
-private let kModelOptions = ["gpt-4.5", "gpt-4o", "gpt-4o-mini", "gpt-4-turbo"]
+private let kModelOptions = ["gpt-5.5", "gpt-5.4", "gpt-4.5", "gpt-4o", "gpt-4o-mini"]
 
 struct SettingsSheet: View {
     @Binding var isPresented: Bool
     let prefsStore: PreferencesStore
 
     @State private var apiKey = ""
-    @State private var model  = "gpt-4o"
+    @State private var model  = "gpt-5.5"
 
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -50,7 +50,7 @@ struct SettingsSheet: View {
     private func loadPrefs() {
         let prefs = prefsStore.load()
         apiKey = prefs.apiKey
-        model  = prefs.model.isEmpty ? "gpt-4o" : prefs.model
+        model  = prefs.model.isEmpty ? "gpt-5.5" : prefs.model
     }
 
     private func save() {
