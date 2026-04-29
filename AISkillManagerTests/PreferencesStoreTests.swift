@@ -37,4 +37,22 @@ final class PreferencesStoreTests: XCTestCase {
         let prefs = store.load()
         XCTAssertTrue(prefs.projects.isEmpty)
     }
+
+    func test_decode_legacy_json_without_api_fields() throws {
+        let json = #"{"projects":[]}"#.data(using: .utf8)!
+        let prefs = try JSONDecoder().decode(Preferences.self, from: json)
+        XCTAssertEqual(prefs.apiKey, "")
+        XCTAssertEqual(prefs.model, "gpt-4o")
+        XCTAssertTrue(prefs.projects.isEmpty)
+    }
+
+    func test_roundtrip_with_api_fields() throws {
+        var prefs = Preferences()
+        prefs.apiKey = "sk-test"
+        prefs.model  = "gpt-4o-mini"
+        let data = try JSONEncoder().encode(prefs)
+        let back = try JSONDecoder().decode(Preferences.self, from: data)
+        XCTAssertEqual(back.apiKey, "sk-test")
+        XCTAssertEqual(back.model,  "gpt-4o-mini")
+    }
 }

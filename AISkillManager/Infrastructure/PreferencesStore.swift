@@ -2,6 +2,21 @@ import Foundation
 
 struct Preferences: Codable {
     var projects: [Project] = []
+    var apiKey: String = ""
+    var model: String = "gpt-4o"
+
+    init(projects: [Project] = [], apiKey: String = "", model: String = "gpt-4o") {
+        self.projects = projects
+        self.apiKey   = apiKey
+        self.model    = model
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        projects = try container.decodeIfPresent([Project].self, forKey: .projects) ?? []
+        apiKey   = try container.decodeIfPresent(String.self,    forKey: .apiKey)   ?? ""
+        model    = try container.decodeIfPresent(String.self,    forKey: .model)    ?? "gpt-4o"
+    }
 }
 
 final class PreferencesStore {
