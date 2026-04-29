@@ -60,6 +60,20 @@ final class AnalysisStore {
         }
     }
 
+    // 切换 skill 时调用：有缓存则立刻展示，没有则清空内容（抽屉保持打开）
+    func switchItem(to item: SkillItem) {
+        let path = item.mainFileURL.path(percentEncoded: false)
+        if let cached = cacheStore.entry(for: path) {
+            result       = cached.result
+            analyzedAt   = cached.analyzedAt
+            errorMessage = nil
+        } else {
+            result       = nil
+            analyzedAt   = nil
+            errorMessage = nil
+        }
+    }
+
     func reset() {
         result       = nil
         analyzedAt   = nil

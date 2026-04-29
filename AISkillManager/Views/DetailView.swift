@@ -36,10 +36,11 @@ struct DetailView: View {
             }
         }
         .onChange(of: store.currentItem) { _, newItem in
-            analysisStore.reset()
             if let newItem {
+                analysisStore.switchItem(to: newItem)
                 editor.bind(to: newItem)
             } else {
+                analysisStore.reset()
                 editor.unbind()
             }
         }

@@ -14,7 +14,7 @@ struct AnalysisDrawer: View {
                 footer(date: date)
             }
         }
-        .frame(width: 300)
+        .frame(width: 360)
         .background(Color(nsColor: .controlBackgroundColor))
     }
 
@@ -73,11 +73,13 @@ struct AnalysisDrawer: View {
             .padding(16)
         } else if let text = analysisStore.result {
             ScrollView {
-                Text((try? AttributedString(markdown: text)) ?? AttributedString(text))
-                    .font(.system(size: 12))
-                    .lineSpacing(3)
+                let opts = AttributedString.MarkdownParsingOptions(interpretedSyntax: .inlineOnlyPreservingWhitespace)
+                Text((try? AttributedString(markdown: text, options: opts)) ?? AttributedString(text))
+                    .font(.system(size: 13))
+                    .lineSpacing(5)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(12)
+                    .padding(14)
+                    .textSelection(.enabled)
             }
         } else {
             Text("点击工具栏「分析」按钮开始分析此 skill")

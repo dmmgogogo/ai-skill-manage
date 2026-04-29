@@ -4,7 +4,22 @@ struct AnalysisService {
     let apiKey: String
     let model: String
 
-    private static let systemPrompt = "请用中文分析这个 AI skill 文件，说明它的用途、触发时机和主要步骤，语言简洁。"
+    private static let systemPrompt = """
+        请用中文分析这个 AI skill 文件，严格按以下 Markdown 格式输出，不要增减章节：
+
+        **用途**
+        一句话描述核心功能。
+
+        **触发时机**
+        - 触发场景一
+        - 触发场景二（按实际列举）
+
+        **主要步骤**
+        1. 第一步
+        2. 第二步（按实际列举）
+
+        要求：文件路径和命令用 `反引号` 标注；总字数不超过 300 字；只输出上述格式内容，不要额外说明。
+        """
 
     func analyze(content: String) async throws -> String {
         let url = URL(string: "https://api.openai.com/v1/chat/completions")!
