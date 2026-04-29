@@ -6,68 +6,99 @@ struct SidebarView: View {
     @Bindable var registry: ProjectRegistry
 
     @State private var addProjectError: String?
+    @State private var showSettings = false
+
+    private let prefsStore = PreferencesStore(fileURL: PreferencesStore.defaultURL())
+    private var appVersion: String {
+        Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "—"
+    }
 
     var body: some View {
-        List(selection: Binding(
-            get: { store.selectedSourceKey },
-            set: { newValue in
-                if let key = newValue {
-                    store.selectSource(key)
+        VStack(spacing: 0) {
+            List(selection: Binding(
+                get: { store.selectedSourceKey },
+                set: { newValue in
+                    if let key = newValue { store.selectSource(key) }
                 }
-            }
-        )) {
-            Section("用户级") {
-                ForEach(userSourceKeys, id: \.self) { key in
-                    if let meta = store.sourceMeta(for: key) {
-                        sidebarRow(key: key, meta: meta)
-                            .tag(Optional(key))
-                    }
-                }
-            }
-
-            ForEach(registry.projects) { project in
-                Section {
-                    ForEach(projectSourceKeys(for: project), id: \.self) { key in
+            )) {
+                Section("用户级") {
+                    ForEach(userSourceKeys, id: \.self) { key in
                         if let meta = store.sourceMeta(for: key) {
                             sidebarRow(key: key, meta: meta)
                                 .tag(Optional(key))
                         }
                     }
-                } header: {
-                    HStack {
-                        Text("项目: \(project.name)")
-                        Spacer()
-                        Button(role: .destructive) {
-                            removeProject(project.id)
-                        } label: {
-                            Image(systemName: "minus.circle")
-                                .foregroundStyle(.tertiary)
+                }
+
+                ForEach(registry.projects) { project in
+                    Section {
+                        ForEach(projectSourceKeys(for: project), id: \.self) { key in
+                            if let meta = store.sourceMeta(for: key) {
+                                sidebarRow(key: key, meta: meta)
+                                    .tag(Optional(key))
+                            }
                         }
-                        .buttonStyle(.plain)
-                        .help("移除项目（不删除磁盘上的目录）")
+                    } header: {
+                        HStack {
+                            Text("项目: \(project.name)")
+                            Spacer()
+                            Button(role: .destructive) {
+                                removeProject(project.id)
+                            } label: {
+                                Image(systemName: "minus.circle")
+                                    .foregroundStyle(.tertiary)
+                            }
+                            .buttonStyle(.plain)
+                            .help("移除项目（不删除磁盘上的目录）")
+                        }
                     }
                 }
+
+                Section {
+                    Button {
+                        presentOpenPanel()
+                    } label: {
+                        Label("添加项目目录", systemImage: "plus.rectangle.on.folder")
+                            .foregroundStyle(.tint)
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+            .listStyle(.sidebar)
+            .alert("添加项目失败",
+                   isPresented: Binding(get: { addProjectError != nil },
+                                        set: { if !$0 { addProjectError = nil } })) {
+                Button("好") { addProjectError = nil }
+            } message: {
+                Text(addProjectError ?? "")
             }
 
-            Section {
-                Button {
-                    presentOpenPanel()
-                } label: {
-                    Label("添加项目目录", systemImage: "plus.rectangle.on.folder")
-                        .foregroundStyle(.tint)
-                }
-                .buttonStyle(.plain)
-            }
+            Divider()
+            bottomBar
         }
-        .listStyle(.sidebar)
         .frame(minWidth: 200)
-        .alert("添加项目失败",
-               isPresented: Binding(get: { addProjectError != nil },
-                                    set: { if !$0 { addProjectError = nil } })) {
-            Button("好") { addProjectError = nil }
-        } message: {
-            Text(addProjectError ?? "")
+        .sheet(isPresented: $showSettings) {
+            SettingsSheet(isPresented: $showSettings, prefsStore: prefsStore)
         }
+    }
+
+    private var bottomBar: some View {
+        HStack {
+            Button {
+                showSettings = true
+            } label: {
+                Label("设置", systemImage: "gearshape")
+                    .font(.system(size: 12))
+            }
+            .buttonStyle(.plain)
+            .foregroundStyle(.secondary)
+            Spacer()
+            Text("v\(appVersion)")
+                .font(.system(size: 10))
+                .foregroundStyle(.tertiary)
+        }
+        .padding(.horizontal, 12)
+        .padding(.vertical, 8)
     }
 
     private var userSourceKeys: [AppStore.SourceKey] {

@@ -4,6 +4,7 @@ struct DetailView: View {
     @Bindable var store: AppStore
     @Bindable var editor: DetailEditorVM
 
+    @State private var analysisStore = AnalysisStore.makeDefault()
     @State private var saveError: String?
     @State private var showDeleteConfirm = false
     @State private var deleteError: String?
@@ -14,12 +15,18 @@ struct DetailView: View {
                 VStack(spacing: 0) {
                     toolbar(for: item)
                     Divider()
-                    TextEditor(text: $editor.editingContent)
-                        .font(.system(size: 13, design: .monospaced))
-                        .lineSpacing(2)
-                        .scrollContentBackground(.hidden)
-                        .background(Color(nsColor: .textBackgroundColor))
-                        .padding(.horizontal, 4)
+                    HStack(spacing: 0) {
+                        TextEditor(text: $editor.editingContent)
+                            .font(.system(size: 13, design: .monospaced))
+                            .lineSpacing(2)
+                            .scrollContentBackground(.hidden)
+                            .background(Color(nsColor: .textBackgroundColor))
+                            .padding(.horizontal, 4)
+                        if analysisStore.showDrawer {
+                            Divider()
+                            AnalysisDrawer(analysisStore: analysisStore, item: item)
+                        }
+                    }
                     statusBar(for: item)
                 }
             } else {
@@ -29,6 +36,7 @@ struct DetailView: View {
             }
         }
         .onChange(of: store.currentItem) { _, newItem in
+            analysisStore.reset()
             if let newItem {
                 editor.bind(to: newItem)
             } else {
@@ -84,6 +92,17 @@ struct DetailView: View {
                     .background(Color.orange.opacity(0.15))
                     .clipShape(RoundedRectangle(cornerRadius: 3))
             }
+            Button {
+                Task { await analysisStore.analyze(item: item) }
+            } label: {
+                if analysisStore.isAnalyzing {
+                    ProgressView().scaleEffect(0.7)
+                } else {
+                    Label("分析", systemImage: "sparkles")
+                }
+            }
+            .disabled(analysisStore.isAnalyzing || item.rawContent.isEmpty)
+            .help("用 AI 分析此 skill 的用途")
             Button {
                 NSWorkspace.shared.activateFileViewerSelecting([item.mainFileURL])
             } label: {
