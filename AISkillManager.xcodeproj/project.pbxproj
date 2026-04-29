@@ -11,6 +11,7 @@
 		0FCF22D5C1C0083028CC767D /* DirectorySkillRepoBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C3ED76D93B87D3760F13D5 /* DirectorySkillRepoBaseTests.swift */; };
 		28AA38473CB28B98EFD6A151 /* SourceKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7881774EC87AE9C17718DF1E /* SourceKind.swift */; };
 		2C86EE86DC8FB7AF30687A02 /* NewItemSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600C6EBE0149891D10C51E20 /* NewItemSheet.swift */; };
+		32FA61E601A6A0EE3060C42A /* AnalysisCacheStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413AA25727D81D7350CE7A69 /* AnalysisCacheStoreTests.swift */; };
 		3CBD0C5BF9E06C1E16F0FF5C /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B36BDB16E790DF0E2384444 /* DetailView.swift */; };
 		411D4BE74D822A2FB8AE9FCD /* CursorRulesRepoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC3913CA7A36E9666E76963 /* CursorRulesRepoTests.swift */; };
 		419C4BA5B9B83DDC51046E9E /* CodexSkillsRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C71990FDF4B1ADE40ED9C2B /* CodexSkillsRepo.swift */; };
@@ -29,6 +30,7 @@
 		7A5BAB819921FE85A0AED128 /* CursorSkillsRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C6E28248DA1CC94740E83C /* CursorSkillsRepo.swift */; };
 		7AA564264DB5C345B1686521 /* SkillItemID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708632DD082380E6D47CE76A /* SkillItemID.swift */; };
 		7D41F041CD3B38B11FEFB02D /* PlaceholderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3CBB976CEC13EA4D14E39D /* PlaceholderTest.swift */; };
+		7E266D548CBF7C19A851E625 /* AnalysisCacheStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150D834529CFA3BD91A265CD /* AnalysisCacheStore.swift */; };
 		930C165B12308C8A765681E3 /* DetailEditorVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FAB66DF61027C44ACA7BA3 /* DetailEditorVM.swift */; };
 		9ED3B82B58702504E94C3B59 /* SkillItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62292AA1601C8EAB694D90B /* SkillItem.swift */; };
 		A2F3F413E91FCF5CAD477C25 /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D53E8E1A49B88CA8F889416 /* ItemListView.swift */; };
@@ -62,12 +64,14 @@
 		0E92BA8BC6FD2BD9BC5D4460 /* DetailEditorVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEditorVMTests.swift; sourceTree = "<group>"; };
 		117FDE8C6FBCFA77CFA20799 /* YAMLFrontmatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YAMLFrontmatterTests.swift; sourceTree = "<group>"; };
 		14E28DD182D2F6F9A5B293FC /* ProjectRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRegistry.swift; sourceTree = "<group>"; };
+		150D834529CFA3BD91A265CD /* AnalysisCacheStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisCacheStore.swift; sourceTree = "<group>"; };
 		1B36BDB16E790DF0E2384444 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		20FAB66DF61027C44ACA7BA3 /* DetailEditorVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEditorVM.swift; sourceTree = "<group>"; };
 		32C3ED76D93B87D3760F13D5 /* DirectorySkillRepoBaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectorySkillRepoBaseTests.swift; sourceTree = "<group>"; };
 		352FB3407AC5AFCA3F7CEBCB /* PreferencesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesStore.swift; sourceTree = "<group>"; };
 		3EF4D8D1EC04CFDDED52F26D /* ClaudeSkillsRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudeSkillsRepo.swift; sourceTree = "<group>"; };
 		3F243EE249031A93992BAFF1 /* AtomicWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicWriter.swift; sourceTree = "<group>"; };
+		413AA25727D81D7350CE7A69 /* AnalysisCacheStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisCacheStoreTests.swift; sourceTree = "<group>"; };
 		54ED7C51277DAFD8B6607C8D /* PreferencesStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesStoreTests.swift; sourceTree = "<group>"; };
 		600C6EBE0149891D10C51E20 /* NewItemSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemSheet.swift; sourceTree = "<group>"; };
 		64F122FF0179E158B08C6C02 /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
@@ -163,6 +167,7 @@
 		7C2ECAB81BE6B12F1B360BE0 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				150D834529CFA3BD91A265CD /* AnalysisCacheStore.swift */,
 				3F243EE249031A93992BAFF1 /* AtomicWriter.swift */,
 				352FB3407AC5AFCA3F7CEBCB /* PreferencesStore.swift */,
 				D4ABED7488C6CC66456198EA /* YAMLFrontmatter.swift */,
@@ -194,6 +199,7 @@
 		A9E8D33CE440820792DB4DD0 /* AISkillManagerTests */ = {
 			isa = PBXGroup;
 			children = (
+				413AA25727D81D7350CE7A69 /* AnalysisCacheStoreTests.swift */,
 				D6C77A00599D756AF78002CF /* AppStoreTests.swift */,
 				F28A63EFEFE93664EC46C90E /* CreateDeleteTests.swift */,
 				6AC3913CA7A36E9666E76963 /* CursorRulesRepoTests.swift */,
@@ -346,6 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32FA61E601A6A0EE3060C42A /* AnalysisCacheStoreTests.swift in Sources */,
 				E46B5FF7CC1A736B6FEF9234 /* AppStoreTests.swift in Sources */,
 				CD21DAB942D4B12DEBC88141 /* CreateDeleteTests.swift in Sources */,
 				411D4BE74D822A2FB8AE9FCD /* CursorRulesRepoTests.swift in Sources */,
@@ -364,6 +371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEB649D27D4266B183EBD8A9 /* AISkillManagerApp.swift in Sources */,
+				7E266D548CBF7C19A851E625 /* AnalysisCacheStore.swift in Sources */,
 				5577C44D81276CCB9FDF3D54 /* AppRoot.swift in Sources */,
 				738933754D77244C25B68A07 /* AppStore.swift in Sources */,
 				F9F9EB5E98B21778C3C826F3 /* AtomicWriter.swift in Sources */,
