@@ -67,10 +67,12 @@ final class AnalysisStore {
             result       = cached.result
             analyzedAt   = cached.analyzedAt
             errorMessage = nil
+            showDrawer   = true   // 有缓存就自动打开抽屉
         } else {
             result       = nil
             analyzedAt   = nil
             errorMessage = nil
+            // showDrawer 保持不变：用户手动打开的抽屉不因切换而关闭
         }
     }
 
