@@ -5,6 +5,7 @@ enum SourceKind: String, Codable, CaseIterable, Hashable {
     case codexSkills
     case cursorSkills
     case cursorRules
+    case agentsMd
 
     var displayName: String {
         switch self {
@@ -12,6 +13,7 @@ enum SourceKind: String, Codable, CaseIterable, Hashable {
         case .codexSkills:  return "Codex Skills"
         case .cursorSkills: return "Cursor Skills"
         case .cursorRules:  return "Cursor Rules"
+        case .agentsMd:     return "Agents.md"
         }
     }
 
@@ -21,6 +23,7 @@ enum SourceKind: String, Codable, CaseIterable, Hashable {
         case .codexSkills:  return "bolt"
         case .cursorSkills: return "target"
         case .cursorRules:  return "ruler"
+        case .agentsMd:     return "doc.plaintext"
         }
     }
 }
