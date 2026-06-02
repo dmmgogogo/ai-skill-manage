@@ -142,7 +142,7 @@ struct SidebarView: View {
         panel.canChooseFiles = false
         panel.canChooseDirectories = true
         panel.allowsMultipleSelection = false
-        panel.message = "选择一个项目根目录（包含 .claude/skills、.codex/skills、.cursor/rules 任一即可）"
+        panel.message = "选择一个项目根目录（包含 .claude/skills、.codex/skills、.cursor/rules、AGENTS.md 任一即可）"
         panel.prompt = "添加"
         guard panel.runModal() == .OK, let url = panel.url else { return }
 
