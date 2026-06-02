@@ -141,4 +141,34 @@ final class AgentsMdRepoTests: XCTestCase {
         try repo.deleteItem(item)
         XCTAssertFalse(FileManager.default.fileExists(atPath: target.path))
     }
+
+    // MARK: - defaultUserCandidates contract
+
+    func test_defaultUserCandidates_contains_agents_md_at_home() {
+        let candidates = AgentsMdRepo.defaultUserCandidates()
+        let home = FileManager.default.homeDirectoryForCurrentUser
+        XCTAssertTrue(candidates.contains(home.appendingPathComponent("AGENTS.md")))
+    }
+
+    func test_defaultUserCandidates_contains_codex_readme() {
+        let candidates = AgentsMdRepo.defaultUserCandidates()
+        let home = FileManager.default.homeDirectoryForCurrentUser
+        XCTAssertTrue(candidates.contains(home.appendingPathComponent(".codex/README.md")))
+    }
+
+    // MARK: - AppStore wiring
+
+    @MainActor
+    func test_makeDefault_includes_agentsMd_repo() {
+        let store = AppStore.makeDefault()
+        let hasAgentsMd = store.repos.contains { $0.kind == .agentsMd && $0.scope == .user }
+        XCTAssertTrue(hasAgentsMd, "makeDefault() should include a user-scope AgentsMdRepo")
+    }
+
+    @MainActor
+    func test_makeDefault_has_five_user_repos() {
+        let store = AppStore.makeDefault()
+        let userRepos = store.repos.filter { $0.scope == .user }
+        XCTAssertEqual(userRepos.count, 5)
+    }
 }

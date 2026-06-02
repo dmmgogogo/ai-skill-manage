@@ -81,6 +81,8 @@ final class AgentsMdRepo: SkillRepository {
     }
 
     func createSkill(name: String) throws -> SkillItem {
+        // The filename is fixed by the candidate list (AGENTS.md / README.md),
+        // so the `name` parameter is intentionally ignored — there is nothing to validate.
         guard let target = candidateURLs.first else {
             throw SkillRepositoryError.invalidName(reason: "无候选文件路径")
         }
@@ -95,7 +97,7 @@ final class AgentsMdRepo: SkillRepository {
         let template = """
         # \(target.lastPathComponent)
 
-        在这里写项目级 Codex 指导内容。
+        在这里写 Codex 指导内容。
         """
         try template.write(to: target, atomically: true, encoding: .utf8)
 
