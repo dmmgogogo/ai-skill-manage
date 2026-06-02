@@ -36,6 +36,7 @@ final class AppStore {
                 CodexSkillsRepo(),
                 CursorSkillsRepo(),
                 CursorRulesRepo(),
+                AgentsMdRepo(),
             ],
             registry: registry
         )
@@ -48,6 +49,7 @@ final class AppStore {
             DirectorySkillRepoBase(kind: .codexSkills,  scope: scope, root: project.path.appendingPathComponent(".codex/skills")),
             DirectorySkillRepoBase(kind: .cursorSkills, scope: scope, root: project.path.appendingPathComponent(".cursor/skills")),
             CursorRulesRepo(scope: scope, root: project.path.appendingPathComponent(".cursor/rules")),
+            AgentsMdRepo(scope: scope, projectRoot: project.path),
         ]
     }
 
