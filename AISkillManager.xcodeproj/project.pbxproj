@@ -50,6 +50,7 @@
 		F0EF0292D9E979AB5CBE0D4C /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30FAE5F3E438EC8E9C41E88 /* Project.swift */; };
 		F3B296E0E8DCF4C089EB797D /* cursor-rules in Resources */ = {isa = PBXBuildFile; fileRef = 8C989A4CA8FC5B63369A3661 /* cursor-rules */; };
 		F9F9EB5E98B21778C3C826F3 /* AtomicWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F243EE249031A93992BAFF1 /* AtomicWriter.swift */; };
+		FB0F04195C873B1C19BF6162 /* agents-md in Resources */ = {isa = PBXBuildFile; fileRef = EEDB38944619280269035F7F /* agents-md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		E6AEB3E6A1F171F9DD5C8177 /* ProjectRegistryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRegistryTests.swift; sourceTree = "<group>"; };
 		EC4785B3C7CBC3C9BDD2E834 /* AISkillManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AISkillManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED3CBB976CEC13EA4D14E39D /* PlaceholderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTest.swift; sourceTree = "<group>"; };
+		EEDB38944619280269035F7F /* agents-md */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "agents-md"; path = "AISkillManagerTests/Fixtures/agents-md"; sourceTree = SOURCE_ROOT; };
 		F28A63EFEFE93664EC46C90E /* CreateDeleteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDeleteTests.swift; sourceTree = "<group>"; };
 		F30BBD1CF36BE1553C3006C0 /* SaveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveTests.swift; sourceTree = "<group>"; };
 		F30FAE5F3E438EC8E9C41E88 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 		BC9064E69A70BAD6E76492DB /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
+				EEDB38944619280269035F7F /* agents-md */,
 				8C989A4CA8FC5B63369A3661 /* cursor-rules */,
 				F89F090AE1A1F8D810BA699B /* dir-source */,
 			);
@@ -352,6 +355,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB0F04195C873B1C19BF6162 /* agents-md in Resources */,
 				F3B296E0E8DCF4C089EB797D /* cursor-rules in Resources */,
 				6C7C349AE4D3F4FB31909B06 /* dir-source in Resources */,
 			);

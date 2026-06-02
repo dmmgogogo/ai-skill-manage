@@ -53,6 +53,8 @@ targets:
         type: folder
       - path: AISkillManagerTests/Fixtures/cursor-rules
         type: folder
+      - path: AISkillManagerTests/Fixtures/agents-md
+        type: folder
     dependencies:
       - target: AISkillManager
     settings:
