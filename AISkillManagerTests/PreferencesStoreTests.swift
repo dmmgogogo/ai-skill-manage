@@ -42,7 +42,7 @@ final class PreferencesStoreTests: XCTestCase {
         let json = #"{"projects":[]}"#.data(using: .utf8)!
         let prefs = try JSONDecoder().decode(Preferences.self, from: json)
         XCTAssertEqual(prefs.apiKey, "")
-        XCTAssertEqual(prefs.model, "gpt-4o")
+        XCTAssertEqual(prefs.model, "gpt-5.5")
         XCTAssertTrue(prefs.projects.isEmpty)
     }
 
