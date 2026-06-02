@@ -141,7 +141,7 @@ final class AppStoreTests: XCTestCase {
         let project = Project(name: "demo", path: projectDir)
         try await store.addProject(project)
 
-        XCTAssertEqual(store.repos.count, 8)
+        XCTAssertEqual(store.repos.count, 9)
     }
 
     @MainActor
@@ -155,7 +155,7 @@ final class AppStoreTests: XCTestCase {
 
         let project = Project(name: "demo", path: projectDir)
         try await store.addProject(project)
-        XCTAssertEqual(store.repos.count, 8)
+        XCTAssertEqual(store.repos.count, 9)
 
         try await store.removeProject(projectID: project.id)
         XCTAssertEqual(store.repos.count, 4)
